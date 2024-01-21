@@ -1,7 +1,5 @@
 version: '3.3'
 
-
-
 services:
     app:
         container_name: farm_nginx
@@ -36,6 +34,22 @@ services:
         networks:
             - dom_network
 
+    app_db:
+        container_name: farm_db
+        image: mysql:8.0.33
+        restart: unless-stopped
+        volumes:
+            - ./storage/db_data:/var/lib/mysql
+            - ./dockerfiles/db/my.cnf:/etc/my.cnf
+        ports:
+            - "3306:3306"
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_USER=admin
+            - MYSQL_PASSWORD=merlin
+            - MYSQL_DATABASE=dominion_test
+        networks:
+            - dom_network
     redis:
         image: redis:alpine
         container_name: farm_redis
