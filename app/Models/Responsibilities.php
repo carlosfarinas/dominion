@@ -11,4 +11,7 @@ class Responsibilities extends Model
 
     protected $fillable = [
         'responsibility'];
+
+    protected $table = 'responsibilities';
+    protected $primaryKey = 'responsibility_id';
 }

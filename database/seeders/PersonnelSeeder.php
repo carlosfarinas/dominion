@@ -15,11 +15,11 @@ class PersonnelSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('personnels')->insert([
-            ['name' => 'John',       'created_at' => date('Y-m-d H:i:s')],
-            ['name' => 'Tomas',      'created_at' => date('Y-m-d H:i:s')],
-            ['name' => 'Chris',      'created_at' => date('Y-m-d H:i:s')],
-            ['name' => 'Melissa',    'created_at' => date('Y-m-d H:i:s')]
+        DB::table('personnel')->insert([
+            ['name' => 'John', 'responsibility_id' => '1', 'created_at' => date('Y-m-d H:i:s')],
+            ['name' => 'Tomas', 'responsibility_id' => '1', 'created_at' => date('Y-m-d H:i:s')],
+            ['name' => 'Chris', 'responsibility_id' => '1', 'created_at' => date('Y-m-d H:i:s')],
+            ['name' => 'Melissa', 'responsibility_id' => '1', 'created_at' => date('Y-m-d H:i:s')]
             ]);
     }
 }
