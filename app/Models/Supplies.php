@@ -15,4 +15,7 @@ class Supplies extends Model
         'stock_min',
         'stock_max'
         ];
+
+    protected $table = 'supplies';
+    protected $primaryKey = 'supplies_id';
 }
