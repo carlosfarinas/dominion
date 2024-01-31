@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('dominion');
 });
+
+Route::get('cache', function () {
+    return response()->json(Cache::get('personnel_all'));
+});

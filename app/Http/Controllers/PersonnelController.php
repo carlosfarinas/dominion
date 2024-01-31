@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Personnel;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Validator;
 
 class PersonnelController extends Controller
@@ -16,7 +17,10 @@ class PersonnelController extends Controller
      */
     public function index(): JsonResponse
     {
-        $personnel = Personnel::all();
+        $personnel = Cache::remember('personnel_all', 120, function () {
+            return Personnel::all();
+        });
+
         if ($personnel->isEmpty()) {
             return response()->json([
                 "status" => false,
